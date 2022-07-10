@@ -1291,3 +1291,33 @@ opcode!(
         Entry(sqe)
     }
 );
+
+opcode!(
+    /// Available since 5.18.
+    pub struct MsgRing {
+        fd: { i32 },
+        len: { u32 },
+        data: { u64 },
+        ;;
+        flags: i32 = 0
+    }
+
+    pub const CODE = sys::IORING_OP_MSG_RING;
+
+    pub fn build(self) -> Entry {
+        let MsgRing {
+            fd,
+            len,
+            data,
+            flags,
+        } = self;
+
+        let mut sqe = sqe_zeroed();
+        sqe.opcode = Self::CODE;
+        sqe.fd = fd;
+        sqe.len = len;
+        sqe.__bindgen_anon_1.off = data as _;
+        sqe.__bindgen_anon_3.rw_flags = flags;
+        Entry(sqe)
+    }
+);

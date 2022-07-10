@@ -40,6 +40,7 @@ pub const IORING_SETUP_CQSIZE: u32 = 8;
 pub const IORING_SETUP_CLAMP: u32 = 16;
 pub const IORING_SETUP_ATTACH_WQ: u32 = 32;
 pub const IORING_SETUP_R_DISABLED: u32 = 64;
+pub const IORING_SETUP_SUBMIT_ALL: u32 = 128;
 pub const IORING_FSYNC_DATASYNC: u32 = 1;
 pub const IORING_TIMEOUT_ABS: u32 = 1;
 pub const IORING_TIMEOUT_UPDATE: u32 = 2;
@@ -65,6 +66,7 @@ pub const IORING_ENTER_GETEVENTS: u32 = 1;
 pub const IORING_ENTER_SQ_WAKEUP: u32 = 2;
 pub const IORING_ENTER_SQ_WAIT: u32 = 4;
 pub const IORING_ENTER_EXT_ARG: u32 = 8;
+pub const IORING_ENTER_REGISTERED_RING: u32 = 16;
 pub const IORING_FEAT_SINGLE_MMAP: u32 = 1;
 pub const IORING_FEAT_NODROP: u32 = 2;
 pub const IORING_FEAT_SUBMIT_STABLE: u32 = 4;
@@ -996,7 +998,8 @@ pub const IORING_OP_UNLINKAT: _bindgen_ty_5 = 36;
 pub const IORING_OP_MKDIRAT: _bindgen_ty_5 = 37;
 pub const IORING_OP_SYMLINKAT: _bindgen_ty_5 = 38;
 pub const IORING_OP_LINKAT: _bindgen_ty_5 = 39;
-pub const IORING_OP_LAST: _bindgen_ty_5 = 40;
+pub const IORING_OP_MSG_RING: _bindgen_ty_5 = 40;
+pub const IORING_OP_LAST: _bindgen_ty_5 = 41;
 pub type _bindgen_ty_5 = libc::c_uint;
 #[repr(C)]
 #[derive(Debug, Default, Copy, Clone)]
@@ -1646,7 +1649,9 @@ pub const IORING_REGISTER_BUFFERS_UPDATE: _bindgen_ty_7 = 16;
 pub const IORING_REGISTER_IOWQ_AFF: _bindgen_ty_7 = 17;
 pub const IORING_UNREGISTER_IOWQ_AFF: _bindgen_ty_7 = 18;
 pub const IORING_REGISTER_IOWQ_MAX_WORKERS: _bindgen_ty_7 = 19;
-pub const IORING_REGISTER_LAST: _bindgen_ty_7 = 20;
+pub const IORING_REGISTER_RING_FDS: _bindgen_ty_7 = 20;
+pub const IORING_UNREGISTER_RING_FDS: _bindgen_ty_7 = 21;
+pub const IORING_REGISTER_LAST: _bindgen_ty_7 = 22;
 pub type _bindgen_ty_7 = libc::c_uint;
 #[repr(C)]
 #[derive(Debug, Default, Copy, Clone)]
